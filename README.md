@@ -1,6 +1,16 @@
 # axmall
 react native android
 
-Axmall.com.au
+www.axmall.com.au
 
 npm install
+
+icon  use http://www.iconfont.cn/
+
+
+
+TODO LIST
+
+Post Data
+Camera
+WebView
