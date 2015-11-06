@@ -1,21 +1,21 @@
 'use strict';
 var React = require('react-native');
-var api = require("../../Network/Apis.js");
-
-var NavToolbar = require('../../Components/NavToolbar/index.js');
-var GridView =  require("../../Components/GridView");
-var GoodsCell = require("../GoodsCell");
+var {
+    Text, View, ScrollView
+} = React;
 var Styles = require('./style.js');
-var { Text, View, ScrollView } = React;
-
+var api = require("../../Network/Apis.js");
+var NavToolbar = require('../../Components/NavToolbar/index.js');
+var GridView = require("../../Components/GridView");
+var GoodsCell = require("../GoodsCell");
 var Goods_PER_ROW = 2;
 var Brands = React.createClass({
     getInitialState: function() {
         return {
-            page : 1,
-            loaded : false,
-            goodsList : [],
-            title : '澳新优选',
+            page: 1,
+            loaded: false,
+            goodsList: [],
+            title: '澳新优选',
             dataUrl: ''
         };
     },
@@ -33,46 +33,50 @@ var Brands = React.createClass({
             });
         }).done();
     },
-    _goToGoods: function(goods){
+    _goToGoods: function(goods) {
         this.props.navigator.push({
             'name': 'goods',
-            'id' : goods.goods_id,
-            'back' : true
+            'id': goods.goods_id,
+            'back': true
         });
     },
     _renderGoodsCell: function(goods) {
         return (
             <View>
                 <GoodsCell
-                 goods = {goods}
-                 onSelect={() => this._goToGoods(goods)}/>
+                  goods={goods}
+                  onSelect={()=>this._goToGoods(goods)}/>
             </View>
         );
     },
-    _renderGoods: function(){
+    _renderGoods: function() {
         return (
             <GridView
-                items = {this.state.goodsList}
-                itemsPerRow = {Goods_PER_ROW}
-                renderItem = {this._renderGoodsCell} />
+              items={ this.state.goodsList }
+              itemsPerRow={ Goods_PER_ROW }
+              renderItem={ this._renderGoodsCell }/>
         )
     },
-    
-    render: function(){
+    render: function() {
         var _nav = this.props.navigator;
         var _title = this.state.title;
         if (!this.state.loaded) {
             return (
-                <View style={Styles.loadingContainer}>
-                    <Text> 加载中.... </Text> 
+                <View
+                  style={ Styles.loadingContainer} >
+                    <Text> 加载中.... </Text>
                 </View>
             )
         } else {
             return (
-                <View style={{flex:1}}>
-                    <NavToolbar navigator={_nav} title={_title} back={true}/>
+                <View
+                  style={{flex: 1}}> 
+                    <NavToolbar
+                      navigator = {_nav}
+                      title = { _title }
+                      back = { true }/>
                     <ScrollView>
-                        {this._renderGoods()}
+                        { this._renderGoods() }
                     </ScrollView>
                 </View>
             )

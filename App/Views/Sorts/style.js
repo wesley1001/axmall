@@ -6,7 +6,7 @@ var {
 } = React;
 var windowSize = Dimensions.get('window');
 module.exports = StyleSheet.create({
-    loadingContainer :{
+    loadingContainer: {
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1
@@ -14,7 +14,7 @@ module.exports = StyleSheet.create({
     sortsFlex: {
         flexDirection: 'row'
     },
-    item:{
+    item: {
         flex: 1,
         alignItems: 'center',
         backgroundColor: '#ffffff'
@@ -23,7 +23,7 @@ module.exports = StyleSheet.create({
         width: windowSize.width / 3,
         height: windowSize.width / 3
     },
-    title:{
+    title: {
         margin: 10,
         borderLeftWidth: 4,
         borderLeftColor: '#7BBE31',

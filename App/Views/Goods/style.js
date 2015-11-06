@@ -30,11 +30,11 @@ module.exports = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
     },
-    goodsName:{
+    goodsName: {
         flex: 1,
         margin: 5
     },
-    goodsCollect : {
+    goodsCollect: {
         width: 10
     }
 });

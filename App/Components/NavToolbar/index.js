@@ -13,8 +13,8 @@ var NavToolbar = React.createClass({
             return (
                 <View style={Styles.toolbar}>
                     <TouchableOpacity
-                        style={Styles.iconCon}
-                        onPress={this._handlePress}>
+                      style={Styles.iconCon}
+                      onPress={this._handlePress}>
                         <Icon
                             name = 'axfont|cart'
                             size = {25}
