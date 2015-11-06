@@ -1,22 +1,14 @@
 'use strict';
 var React = require('react-native');
-var api = require("../../Network/Apis.js");
-var dataUrl = api.REQUEST_URL + 'brand/?page=1';
+var { Image, Text, View, ScrollView, TouchableHighlight } = React;
+var Styles = require('./style.js');
+
+var Api = require("../../Network/Apis.js");
+var dataUrl = Api.REQUEST_URL + 'brand/?page=1';
+
+var NavToolbar = require('../../Components/NavToolbar/index.js');
 var GridView =  require("../../Components/GridView");
 var BrandsCell = require("../BrandsCell");
-
-var {
-    Image,
-    Navigator,
-    Text,
-    View,
-    ScrollView,
-    TouchableHighlight
-} = React;
-var Styles = require('./style.js');
-//var ListView = require('./List');
-var Router = require('react-native-navigator');
-var NavToolbar = require('../../Components/NavToolbar/index.js');
 
 var Brand_PER_ROW = 3;
 var Sorts = React.createClass({
