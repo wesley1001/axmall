@@ -12,7 +12,8 @@ module.exports = StyleSheet.create({
         flex: 1
     },
     sortsFlex: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'flex-start'
     },
     item: {
         flex: 1,

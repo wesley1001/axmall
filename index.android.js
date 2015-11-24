@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react-native');
 var { AppRegistry, Text, View } = React;
-var Tabbar = require('./App/Components/TabBar/index.js');
+var Tabbar = require('./App/Lib/TabBar/index.js');
 var Item = Tabbar.Item;
 
 var { Icon } = require('react-native-icons');

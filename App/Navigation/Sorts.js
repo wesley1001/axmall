@@ -17,7 +17,7 @@ var Sorts = React.createClass({
     render(){
         return (
             <Navigator
-                initialRoute={{'name':'sorts'}}
+                initialRoute={{'name':'sorts',type:'baby'}}
                 configureScene={() => Navigator.SceneConfigs.FloatFromRight}
                 renderScene={this._renderScene}
             />

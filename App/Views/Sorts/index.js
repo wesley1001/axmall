@@ -6,8 +6,8 @@ var Styles = require('./style.js');
 var Api = require("../../Network/Apis.js");
 var dataUrl = Api.REQUEST_URL + 'brand/?page=1';
 
-var NavToolbar = require('../../Components/NavToolbar/index.js');
-var GridView =  require("../../Components/GridView");
+var NavToolbar = require('../../Lib/NavToolbar/index.js');
+var GridView =  require("../../Lib/GridView");
 var BrandsCell = require("../BrandsCell");
 
 var Brand_PER_ROW = 3;
@@ -47,7 +47,12 @@ var Sorts = React.createClass({
     },
     _renderBrandsCell: function(brand) {
         return (
-            <View><BrandsCell brand={brand} navigator={navigator} _onPress={()=>this._goToBrands(brand)}/></View>
+            <View>
+                <BrandsCell
+                  brand={brand}
+                  navigator={navigator}
+                  _onPress={()=>this._goToBrands(brand)} />
+            </View>
         );
     },
     _renderBrand: function(){

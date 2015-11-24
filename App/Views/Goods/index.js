@@ -9,7 +9,7 @@ var {
   ScrollView
 } = React;
 var ViewPager = require('react-native-viewpager');
-var NavToolbar = require('../../Components/NavToolbar/index.js');
+var NavToolbar = require('../../Lib/NavToolbar/index.js');
 var { Icon } = require('react-native-icons');
 var Styles = require('./style.js');
 
