@@ -24,7 +24,6 @@ var Goods = React.createClass({
             dataUrl: '',
             dataSource: '',
             goods: ''
-            //new ViewPager.DataSource({pageHasChanged: (p1, p2) => p1 !== p2})
         };
     },
     componentDidMount: function() {

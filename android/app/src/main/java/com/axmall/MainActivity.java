@@ -13,7 +13,7 @@ import com.facebook.soloader.SoLoader;
 
 import com.smixx.reactnativeicons.IconFont;
 import com.smixx.reactnativeicons.ReactNativeIcons;
-
+import com.axmall.view.CustomReactPackage;
 import java.util.Arrays;
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
@@ -32,6 +32,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
               .setJSMainModuleName("index.android")
               .addPackage(new MainReactPackage())
               .addPackage(new ReactNativeIcons())
+              .addPackage(new CustomReactPackage())
               .setUseDeveloperSupport(BuildConfig.DEBUG)
               .setInitialLifecycleState(LifecycleState.RESUMED)
               .build();
