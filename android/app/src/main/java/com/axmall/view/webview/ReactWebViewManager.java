@@ -57,11 +57,7 @@ public class ReactWebViewManager extends SimpleViewManager<ObservableWebView> {
             webView.setWebViewClient(new WebViewClient(){
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                    WritableMap event = Arguments.createMap();
-                    event.putInt("id", 1103);
-                    ReactContext reactContext = (ReactContext)getContext();
-                    reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
-                        getId(), "topChange", event);
+                    webView.getGoodsId(url);
                     return true;
                 }
             });

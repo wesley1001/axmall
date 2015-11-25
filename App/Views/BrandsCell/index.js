@@ -1,9 +1,8 @@
 'use strict';
 var React = require('react-native');
-var {
-    Image, Text, View, TouchableHighlight
-} = React;
+var { Image, Text, View, TouchableHighlight } = React;
 var styles = require('./style.js');
+
 var BrandsCell = React.createClass({
     render: function() {
         return (

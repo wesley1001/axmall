@@ -1,15 +1,23 @@
 'use strict';
+/* component */
 var React = require('react-native');
+var { Text, View, ScrollView, ListView } = React;
+var NavToolbar = require('../../Lib/NavToolbar/index.js');
+var GridView =  require("../../Lib/Grid");
+var GiftedSpinner = require('react-native-gifted-spinner');
+
+/* modules */
+var Styles = require('./style.js');
+var GoodsCell = require("../GoodsCell");
+
+/* config */
+var GOODS_PER_ROW = 2;
 var api = require("../../Network/Apis.js");
 
-var NavToolbar = require('../../Lib/NavToolbar/index.js');
-var GridView =  require("../../Lib/grid-view");
-var GoodsCell = require("../GoodsCell");
-var Styles = require('./style.js');
-var { Text, View, ScrollView, ListView } = React;
-var GiftedSpinner = require('react-native-gifted-spinner');
-var GOODS_PER_ROW = 2;
+/* data*/
 var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+
+/* main */
 var Category = React.createClass({
     getInitialState: function() {
         return {
@@ -39,25 +47,6 @@ var Category = React.createClass({
             }
         }).done();
     },
-    _goToGoods: function(goods){
-        this.props.navigator.push({
-            'name': 'goods',
-            'id' : goods.goods_id,
-            'back' : true
-        });
-    },
-    _renderGoodsCell: function(goods) {
-        return (
-            <View>
-                <GoodsCell 
-                    goods={goods} 
-                    onSelect={() => this._goToGoods(goods)}/>
-            </View>
-        );
-    },
-    _onEndReached : function(){
-        this.fetchData();
-    },
     render: function(){
         if (!this.state.loaded) {
             return (
@@ -74,13 +63,31 @@ var Category = React.createClass({
                     <GridView
                         items={this.state.goodsList}
                         itemsPerRow={GOODS_PER_ROW}
-                        renderItem = {this._renderGoodsCell}
-                        onEndReached = { this._onEndReached }
-                    />
+                        renderItem = {this.renderGoodsCell}
+                        onEndReached = { this._onEndReached } />
                 </View>
             )
             this.state.loaded = false;
         }
-    }
+    },
+    renderGoodsCell: function(goods) {
+        return (
+            <View>
+                <GoodsCell 
+                    goods={goods} 
+                    onSelect={() => this._goToGoods(goods)}/>
+            </View>
+        );
+    },
+    _goToGoods: function(goods){
+        this.props.navigator.push({
+            'name': 'goods',
+            'id' : goods.goods_id,
+            'back' : true
+        });
+    },
+    _onEndReached : function(){
+        this.fetchData();
+    },
 })
 module.exports = Category;

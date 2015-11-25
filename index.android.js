@@ -1,32 +1,40 @@
 'use strict';
 var React = require('react-native');
 var { AppRegistry, Text, View } = React;
+var { Icon } = require('react-native-icons');
 var Tabbar = require('./App/Lib/TabBar/index.js');
 var Item = Tabbar.Item;
 
-var { Icon } = require('react-native-icons');
+
 //var QRCodeScreen = require('./App/Components/QRCodeScreen');
-//var SortsNav = "";
-//var IndexView = "";
 var Index = require('./App/Navigation/Index');
+var Activity = require('./App/Navigation/Activity');
 var Sorts = require('./App/Navigation/Sorts');
-var CardView = "";
-var GiftView = "";
+var Cart = "";
+var User = "";
 
 var Axmall = React.createClass({
     getInitialState: function() {
-        return {selected: 'index'};
+        return {
+            selected: 'activity',
+            tabHeight: 55
+        };
     },
     onTabItemPress: function(name) {
         this.setState({
             selected: name
         });
     },
+    setTabHeight: function(height){
+        this.setState({
+            selected: height
+        });
+    },
     render: function() {
         var state = this.state;
         return (
             <View style={{flex: 1}}>
-                <Tabbar selected = {state.selected} onTabItemPress = {this.onTabItemPress} tabHeight={55} >
+                <Tabbar selected = {state.selected} onTabItemPress = {this.onTabItemPress} tabHeight={this.setTabHeight(55)} >
                     <Item name="index">
                         <Item.Content>
                             <Index/>
@@ -37,7 +45,20 @@ var Axmall = React.createClass({
                                 size = {25}
                                 style = {{width: 25, height: 25}}
                             />
-                            <Text> 首页 </Text>
+                            <Text> 特卖 </Text>
+                        </Item.Icon>
+                    </Item>
+                    <Item name="activity">
+                        <Item.Content>
+                            <Activity/>
+                        </Item.Content>
+                        <Item.Icon>
+                            <Icon
+                                name = 'axfont|cart'
+                                size = {25}
+                                style = {{width: 25, height: 25}}
+                            />
+                            <Text> 活动 </Text>
                         </Item.Icon>
                     </Item>
                     <Item name="sorts">
@@ -55,7 +76,7 @@ var Axmall = React.createClass({
                     </Item>
                     <Item name="card">
                         <Item.Content>
-                            <CardView/>
+                            <Cart/>
                         </Item.Content>
                         <Item.Icon>
                             <Icon
@@ -63,12 +84,12 @@ var Axmall = React.createClass({
                                 size = {25}
                                 style = {{width: 25, height: 25}}
                             />
-                            <Text> 礼金卡 </Text> 
+                            <Text> 购物车 </Text> 
                         </Item.Icon>
                     </Item>
                     <Item name="gift">
                         <Item.Content>
-                            <GiftView/>
+                            <User/>
                         </Item.Content>
                         <Item.Icon>
                             <Icon
@@ -76,7 +97,7 @@ var Axmall = React.createClass({
                                 size = {25}
                                 style = {{width: 25, height: 25}}
                             />
-                            <Text> 优惠券 </Text>
+                            <Text> 用户 </Text>
                         </Item.Icon>
                     </Item>
                 </Tabbar>

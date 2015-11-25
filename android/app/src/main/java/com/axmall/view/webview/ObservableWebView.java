@@ -6,6 +6,9 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.webkit.WebView;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.WritableMap;
@@ -37,18 +40,33 @@ public class ObservableWebView extends WebView {
         super(context, attrs, defStyleAttr, privateBrowsing);
     }
 
-    @Override
-    protected void onScrollChanged(final int l, final int t, final int oldl, final int oldt)
-    {
-        super.onScrollChanged(l, t, oldl, oldt);
-
+    protected void getGoodsId(String url){
         WritableMap event = Arguments.createMap();
-        event.putInt("ScrollX", l);
-        event.putInt("ScrollY", t);
-        ReactContext reactContext = (ReactContext)getContext();
-        reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
-                getId(), "topChange", event);
+        String regex = "http://www.axmall.com.au/p/(\\d+)\\.html";
+        Pattern pattern = Pattern.compile("^"+regex+"$");
+        String id;
+        Matcher matcher = pattern.matcher(url);
+        if(matcher.find()){
+            id = matcher.group(1);
+            event.putString("id", id);
+            ReactContext reactContext = (ReactContext)getContext();
+            reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
+                    getId(), "topChange", event);
+        }
     }
+
+    // @Override
+    // protected void onScrollChanged(final int l, final int t, final int oldl, final int oldt)
+    // {
+    //     super.onScrollChanged(l, t, oldl, oldt);
+
+    //     WritableMap event = Arguments.createMap();
+    //     event.putInt("ScrollX", l);
+    //     event.putInt("ScrollY", t);
+    //     ReactContext reactContext = (ReactContext)getContext();
+    //     reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
+    //             getId(), "topChange", event);
+    // }
 
     // @Override
     // public void setWebViewClient(new WebViewClient() {

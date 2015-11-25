@@ -1,16 +1,22 @@
 'use strict';
+/* component */
 var React = require('react-native');
 var { Image, Text, View, ScrollView, TouchableHighlight } = React;
-var Styles = require('./style.js');
-
-var Api = require("../../Network/Apis.js");
-var dataUrl = Api.REQUEST_URL + 'brand/?page=1';
-
 var NavToolbar = require('../../Lib/NavToolbar/index.js');
 var GridView =  require("../../Lib/GridView");
+
+/* module */
+var Styles = require('./style.js');
 var BrandsCell = require("../BrandsCell");
 
+/* config */
 var Brand_PER_ROW = 3;
+var Api = require("../../Network/Apis.js");
+
+/* data */
+var dataUrl = Api.REQUEST_URL + 'brand/?page=1';
+
+/* main */
 var Sorts = React.createClass({
     getInitialState: function() {
         return {
@@ -31,47 +37,6 @@ var Sorts = React.createClass({
             });
         }).done();
     },
-    _goToCategory: function(type){
-        this.props.navigator.push({
-            'name': 'category',
-            'id' : type,
-            'back' : true,
-        });
-    },
-    _goToBrands: function(brand){
-        this.props.navigator.push({
-            'name': 'brands',
-            'id' : brand.brand_id,
-            'back' : true
-        });
-    },
-    _renderBrandsCell: function(brand) {
-        return (
-            <View>
-                <BrandsCell
-                  brand={brand}
-                  navigator={navigator}
-                  _onPress={()=>this._goToBrands(brand)} />
-            </View>
-        );
-    },
-    _renderBrand: function(){
-        if (!this.state.loaded) {
-            return (
-                <View style={Styles.loadingContainer}>
-                    <Text> 加载中.... </Text> 
-                </View>
-            )
-        } else {
-            return (
-                <GridView
-                    items = {this.state.brandList}
-                    itemsPerRow = {Brand_PER_ROW}
-                    renderItem = {this._renderBrandsCell} />
-            )
-        }
-    },
-
     render: function() {
         return (
             <View style={{flex:1}}>
@@ -135,10 +100,50 @@ var Sorts = React.createClass({
                     <View style={Styles.title}>
                         <Text style={{fontSize: 20}}>品牌</Text>
                     </View>
-                    {this._renderBrand()}
+                    {this.renderBrand()}
                 </ScrollView>
             </View>
         )
+    },
+    renderBrand: function(){
+        if (!this.state.loaded) {
+            return (
+                <View style={Styles.loadingContainer}>
+                    <Text> 加载中.... </Text> 
+                </View>
+            )
+        } else {
+            return (
+                <GridView
+                    items = {this.state.brandList}
+                    itemsPerRow = {Brand_PER_ROW}
+                    renderItem = {this.renderBrandsCell} />
+            )
+        }
+    },
+    renderBrandsCell: function(brand) {
+        return (
+            <View>
+                <BrandsCell
+                  brand={brand}
+                  navigator={navigator}
+                  _onPress={()=>this._goToBrands(brand)} />
+            </View>
+        );
+    },
+    _goToCategory: function(type){
+        this.props.navigator.push({
+            'name': 'category',
+            'id' : type,
+            'back' : true,
+        });
+    },
+    _goToBrands: function(brand){
+        this.props.navigator.push({
+            'name': 'brands',
+            'id' : brand.brand_id,
+            'back' : true
+        });
     }
 })
 module.exports = Sorts;

@@ -1,11 +1,16 @@
+'use strict';
+/* component */
 var React = require('react-native');
 var { Navigator } = React;
+
+/* View */
 var IndexView = require('../../App/Views/Index');
 var WebView = require('../../App/Views/Web');
 var CategoryView = require('../../App/Views/Category');
 var BrandsView = require('../../App/Views/Brands');
 var GoodsView = require('../../App/Views/Goods');
 
+/* mian */
 var Index = React.createClass({
      _renderScene(route, navigator) {
         switch(route.name){

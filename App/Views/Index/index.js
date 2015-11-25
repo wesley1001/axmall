@@ -5,7 +5,7 @@ var { Text, View, ScrollView, TouchableHighlight, Image } = React;
 var { Icon } = require('react-native-icons');
 var ViewPager = require('react-native-viewpager');
 var NavToolbar = require('../../Lib/NavToolbar/index.js');
-var GridView =  require("../../Lib/grid-view");
+var GridView =  require("../../Lib/Grid");
 
 /* module */
 var Styles = require("./style.js");
@@ -56,53 +56,6 @@ var Index = React.createClass({
             });
         }).done();
     },
-    _goToGoods: function(goods){
-        this.props.navigator.push({
-            'name': 'goods',
-            'id' : goods.goods_id,
-            'back' : true
-        });
-    },
-    _renderGoodsCell: function(goods) {
-        return (
-            <View>
-                <GoodsCell 
-                    goods={goods} 
-                    onSelect={() => this._goToGoods(goods)}/>
-            </View>
-        );
-    },
-    _onEndReached : function(){
-        this.fetchData();
-    },
-    _renderGoods: function() {
-        return (
-            <GridView
-                items={this.state.goodsList}
-                itemsPerRow={GOODS_PER_ROW}
-                renderItem = {this._renderGoodsCell}
-                onEndReached = { this._onEndReached } />
-        )
-    },
-    _onSelect: function(url,name){
-        this.props.navigator.push({
-            'name': 'webview',
-            'id' : url,
-            'title' : name,
-            'back' : true,
-        });
-    },
-    _renderSlider: function( data: Object,pageID: number | string,) {
-        return (
-            <TouchableHighlight onPress={()=>{this._onSelect(data.url,data.name)}} style={{flex: 1}} activeOpacity={0.4}>
-                <View>
-                    <Image
-                        source={{uri: data.img}} 
-                        style={Styles.img}/>
-                </View>
-            </TouchableHighlight>
-        )
-    },
     render: function() {
         if (!this.state.loaded) {
             return (
@@ -120,7 +73,7 @@ var Index = React.createClass({
                     <ScrollView>
                         <ViewPager
                             dataSource = { this.state.slider }
-                            renderPage = { this._renderSlider }
+                            renderPage = { this.renderSlider }
                             isLoop = { true }
                             style = { Styles.viewpager }
                             autoPlay = { true } />
@@ -158,11 +111,54 @@ var Index = React.createClass({
                                 <Text>购物车</Text>
                             </View>
                         </View>
-                        {this._renderGoods()}
+                        {this.renderGoods()}
                     </ScrollView>
                 </View>
             )
         }
+    },
+    renderSlider: function( data: Object,pageID: number | string,) {
+        return (
+            <TouchableHighlight onPress={()=>{this._onSelectSlider(data.url,data.name)}} style={{flex: 1}} activeOpacity={0.4}>
+                <View>
+                    <Image
+                        source={{uri: data.img}} 
+                        style={Styles.img}/>
+                </View>
+            </TouchableHighlight>
+        )
+    },
+    renderGoods: function() {
+        return (
+            <GridView
+                items={this.state.goodsList}
+                itemsPerRow={GOODS_PER_ROW}
+                renderItem = {this.renderGoodsCell} />
+        )
+    },
+    renderGoodsCell: function(goods) {
+        return (
+            <View>
+                <GoodsCell 
+                    goods={goods} 
+                    onSelect={() => this._goToGoods(goods)}/>
+            </View>
+        );
+    },
+    _onSelectSlider: function(url,name){
+        this.props.navigator.push({
+            'name': 'webview',
+            'id' : url,
+            'title' : name,
+            'back' : true,
+        });
+    },
+    _goToGoods: function(goods){
+        this.props.navigator.push({
+            'name': 'goods',
+            'id' : goods.goods_id,
+            'back' : true
+        });
     }
 })
 module.exports = Index;

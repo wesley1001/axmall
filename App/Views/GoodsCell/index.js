@@ -1,16 +1,10 @@
 'use strict';
 var React = require('react-native');
-var {
-    Image,
-    Text,
-    View,
-    TouchableHighlight,
-} = React;
-var styles = require('./style.js');
+var { Image, Text, View, TouchableHighlight } = React;
 var Goods = require('../Goods');
+var styles = require('./style.js');
 var GoodsCell = React.createClass({
     render: function() {
-        //console.log('http://img.axmall.com.au/' + this.props.goods.goods_img + '!m');
         return (
             <TouchableHighlight onPress={this.props.onSelect} style={styles.goods_item} activeOpacity={0.4}>
                 <View style={styles.goods_item}>
