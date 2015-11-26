@@ -37,27 +37,39 @@ class Tabbar extends Component {
                 }
             });
         });
-        return (
-            <View style={styles.container}>
-                <View style={styles.contentView}>
-                    {contentView}
+        if(props.visibility){
+            return (
+                <View style={styles.container}>
+                    <View style={styles.contentView}>
+                        {contentView}
+                    </View>
+                    <View style={[styles.tabbarView, { height: props.tabHeight }]}>
+                        {itemList}
+                    </View>
                 </View>
-                <View style={[styles.tabbarView, { height: props.tabHeight }]}>
-                    {itemList}
+            )
+        }else{
+            return(
+                <View style={styles.container}>
+                    <View style={styles.contentView}>
+                        {contentView}
+                    </View>
                 </View>
-            </View>
-        );
+            )
+        }
     }
 }
 Tabbar.propTypes = {
     selected: React.PropTypes.string,
     onTabItemPress: React.PropTypes.func,
-    tabHeight: React.PropTypes.number
+    tabHeight: React.PropTypes.number,
+    visibility: React.PropTypes.bool
 };
 Tabbar.defaultProps = {
     selected: '',
     onTabItemPress: noop,
-    tabHeight: 50
+    tabHeight: 50,
+    visibility: true,
 };
 class Item extends Component {
     constructor(props) {

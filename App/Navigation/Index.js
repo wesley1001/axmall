@@ -12,7 +12,14 @@ var GoodsView = require('../../App/Views/Goods');
 
 /* mian */
 var Index = React.createClass({
-     _renderScene(route, navigator) {
+    _test:function(){
+        console.log('aaaaa');
+        this.props.test();
+    },
+    _renderScene(route, navigator) {
+        if(route.name=='goods'){
+            this._test.bind(this);
+        }
         switch(route.name){
         	case 'index' : return (<IndexView navigator={navigator} /> );break;
             case 'webview': return (<WebView navigator={navigator} route={route} /> );break;
@@ -22,14 +29,15 @@ var Index = React.createClass({
         }
     },
     render(){
+        
         return (
             <Navigator
                 initialRoute={{'name':'index'}}
                 configureScene={() => Navigator.SceneConfigs.FloatFromRight}
                 renderScene={this._renderScene}
             />
-
         )
+        
     }
 })
 module.exports = Index;

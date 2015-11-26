@@ -2,39 +2,47 @@
 var React = require('react-native');
 var { AppRegistry, Text, View } = React;
 var { Icon } = require('react-native-icons');
-var Tabbar = require('./App/Lib/TabBar/index.js');
+var Tabbar = require('./App/Lib/Tab');
 var Item = Tabbar.Item;
 
 
 //var QRCodeScreen = require('./App/Components/QRCodeScreen');
-var Index = require('./App/Navigation/Index');
+//var Index = require('./App/Navigation/Index');
 var Activity = require('./App/Navigation/Activity');
 var Sorts = require('./App/Navigation/Sorts');
+
+var Index = "";
 var Cart = "";
 var User = "";
 
 var Axmall = React.createClass({
     getInitialState: function() {
         return {
-            selected: 'activity',
-            tabHeight: 55
+            'selected': 'index',
+            'visibility': true
         };
-    },
+    }, 
     onTabItemPress: function(name) {
         this.setState({
             selected: name
         });
     },
-    setTabHeight: function(height){
-        this.setState({
-            selected: height
-        });
-    },
+    // _hide: function(){
+    //     this.setState({
+    //         'visibility': false
+    //     });
+    // },
+    // _show: function(){
+    //     this.setState({
+    //         'visibility': true
+    //     });
+    // },
     render: function() {
+        //console.log(this._hide);
         var state = this.state;
         return (
             <View style={{flex: 1}}>
-                <Tabbar selected = {state.selected} onTabItemPress = {this.onTabItemPress} tabHeight={this.setTabHeight(55)} >
+                <Tabbar selected = {state.selected} onTabItemPress = {this.onTabItemPress} tabHeight={55}  visibility={true}>
                     <Item name="index">
                         <Item.Content>
                             <Index/>
@@ -43,8 +51,7 @@ var Axmall = React.createClass({
                             <Icon
                                 name = 'axfont|cart'
                                 size = {25}
-                                style = {{width: 25, height: 25}}
-                            />
+                                style = {{width: 25, height: 25}} />
                             <Text> 特卖 </Text>
                         </Item.Icon>
                     </Item>
