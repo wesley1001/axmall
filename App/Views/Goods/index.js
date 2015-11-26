@@ -42,6 +42,9 @@ var Goods = React.createClass({
         }).done();
     },
     render: function() {
+        //console.log(this.props);
+
+                //this.props.navComponent.setState({'visibility': false});
         if (!this.state.loaded) {
             return (
                 <View style={Styles.loadingContainer}>

@@ -1,7 +1,8 @@
 'use strict';
 /* component */
 var React = require('react-native');
-var { Navigator } = React;
+var { Navigator,ScrollView,View,Dimensions } = React;
+var {width, height} = Dimensions.get('window')
 
 /* View */
 var SortsView = require('../../App/Views/Sorts');
@@ -13,7 +14,17 @@ var GoodsView = require('../../App/Views/Goods');
 var Sorts = React.createClass({
      _renderScene(route, navigator) {
         switch(route.name){
-            case 'sorts': return (<SortsView navigator={navigator} /> );break;
+            case 'sorts':
+                return (
+                    <View style={{flex: 1}}>
+                        <ScrollView style={{width: width, height: height - 55}}>
+                            <SortsView navigator={navigator} />
+                        </ScrollView>
+                        <View style={{ flexDirection: 'row', justifyContent: 'center',alignItems: 'center', width: width, height:55 }}>
+                            {this.props.item}
+                        </View>
+                    </View> 
+                );break;
             case 'category': return (<CategoryView navigator={navigator} route={route} /> );break;
             case 'brands' : return (<BrandsView navigator={navigator} route={route} /> );break;
             case 'goods' : return (<GoodsView navigator={navigator} route={route} /> );break;
