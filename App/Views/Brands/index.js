@@ -1,14 +1,19 @@
 'use strict';
+/* component */
 var React = require('react-native');
-var {
-    Text, View, ScrollView
-} = React;
-var Styles = require('./style.js');
-var api = require("../../Network/Apis.js");
+var { Text, View, ScrollView } = React;
 var NavToolbar = require('../../Lib/NavToolbar/index.js');
-var GridView =  require("../../Lib/grid-view");
+var GridView =  require("../../Lib/Grid");
+
+/* module */
+var Styles = require('./style.js');
 var GoodsCell = require("../GoodsCell");
+
+/* config */
 var Goods_PER_ROW = 2;
+var api = require("../../Network/Apis.js");
+
+/* main */
 var Brands = React.createClass({
     getInitialState: function() {
         return {
@@ -16,7 +21,6 @@ var Brands = React.createClass({
             loaded : false,
             goodsList : [],
             title : '澳新优选',
-            dataSource: [],
         };
     },
     componentDidMount: function() {
@@ -27,7 +31,6 @@ var Brands = React.createClass({
         this.state.page = this.state.page + 1;
         var dataUrl = api.REQUEST_URL + 'brand/' + type + '?page=' + this.state.page;
         fetch(dataUrl).then((response) => response.json()).then((responseData) => {
-            console.log(responseData);
             if(responseData.goods_list.length > 0){
                 var ary_goodslist = this.state.goodsList;
                 Array.prototype.push.apply(ary_goodslist, responseData.goods_list);
@@ -38,34 +41,6 @@ var Brands = React.createClass({
                 });
             }
         }).done();
-    },
-    _goToGoods: function(goods) {
-        this.props.navigator.push({
-            'name': 'goods',
-            'id': goods.goods_id,
-            'back': true
-        });
-    },
-    _renderGoodsCell: function(goods) {
-        return (
-            <View>
-                <GoodsCell
-                  goods={goods}
-                  onSelect={()=>this._goToGoods(goods)}/>
-            </View>
-        );
-    },
-    _onEndReached : function(){
-        this.fetchData();
-    },
-    _renderGoods: function() {
-        return (
-            <GridView
-              items={ this.state.goodsList }
-              itemsPerRow={ Goods_PER_ROW }
-              onEndReached = { this._onEndReached }
-              renderItem={ this._renderGoodsCell }/>
-        )
     },
     render: function() {
         var _nav = this.props.navigator;
@@ -82,10 +57,39 @@ var Brands = React.createClass({
                 <View
                   style={{flex: 1}}> 
                     <NavToolbar navigator = {_nav} title = { _title } back = { true }/>
-                    { this._renderGoods() }
+                    { this.renderGoods() }
                 </View>
             )
         }
+    },
+    renderGoods: function() {
+        return (
+            <GridView
+              items={ this.state.goodsList }
+              itemsPerRow={ Goods_PER_ROW }
+              onEndReached = { this._onEndReached }
+              renderItem={ this.renderGoodsCell }/>
+        )
+    },
+    renderGoodsCell: function(goods) {
+        return (
+            <View>
+                <GoodsCell
+                  goods={goods}
+                  onSelect={()=>this._goToGoods(goods)}/>
+            </View>
+        );
+    },
+    _goToGoods: function(goods) {
+        this.props.navigator.push({
+            'name': 'goods',
+            'id': goods.goods_id,
+            'back': true
+        });
+    },
+    
+    _onEndReached : function(){
+        this.fetchData();
     }
 })
 module.exports = Brands;

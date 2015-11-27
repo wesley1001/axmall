@@ -2,25 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/alexa/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.3/1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14/jackson-core-2.2.3.jar"
+        jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.6.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14">
-        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.3-ce29a5152377523f9370c047bcc63f88b6428886.jar" />
-    </item>
-    <item
-        jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp/0.6.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1d5fddbfc516e39dd74d776e5cca8b761721990b">
-        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/classes-1d9d95c88b8e5584d3c993c18b26fe1d84073bd1.jar" />
-    </item>
-    <item
-        jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-567a43eb82311f3b72efe98b7cc20431b68527c9.jar" />
+        sha1="dd4c42401d36342901ac4280fb92a831f8007f3d">
+        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/classes-e400647b56846bd81362bfafe659632f5720a352.jar" />
     </item>
     <item
         jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.6.1/jars/classes.jar"
@@ -28,41 +14,6 @@
         revision="23.0.1"
         sha1="c10091a128e47ed4ef804bd753c0f45745699756">
         <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/classes-5011c3a1337c280019e4c79d21f59a56659b7011.jar" />
-    </item>
-    <item
-        jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.12.0/jars/libs/infer-annotations-1.5.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="0b5e946b76cdb1f00b18f2981e7d997141a66c9f">
-        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5-0777b4746b2fcc58ae9b118a6037b23077a8ebb2.jar" />
-    </item>
-    <item
-        jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.6.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="eb9817e26186e1a267cdd14211742ecc793de32e">
-        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/classes-816843f7eb0ab3814556731d76265f1822888199.jar" />
-    </item>
-    <item
-        jar="/Users/alexa/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/library-2.4.0-946fbd28a7569ee4b10ab88cda48caf45a101c34.jar" />
-    </item>
-    <item
-        jar="/Users/alexa/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.4.0/40340c0748190fe897baf7bffbc1b282734294e5/okhttp-2.4.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="40340c0748190fe897baf7bffbc1b282734294e5">
-        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/okhttp-2.4.0-53d6835e58ee4a2dbebd7fc0b29cee33567389b9.jar" />
-    </item>
-    <item
-        jar="/Users/alexa/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="129874135e6081269ace2312092031558865de12">
-        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-d6fc5d4987b6cce02c0b41e61e302dccb0d56225.jar" />
     </item>
     <item
         jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.12.0/jars/classes.jar"
@@ -79,13 +30,6 @@
         <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-2.4.0-054fa0cd9a3b1f28cb9a19c8f02058385b519c23.jar" />
     </item>
     <item
-        jar="/usr/local/opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-83cbd8867bbfafb64844edcdc4bcc0a8099d3359.jar" />
-    </item>
-    <item
         jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
@@ -93,11 +37,25 @@
         <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/classes-24cb40f7bf6c5c5180cbca89ff46c890ee4430ad.jar" />
     </item>
     <item
-        jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.6.1/jars/classes.jar"
+        jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.12.0/jars/libs/infer-annotations-1.5.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="dd4c42401d36342901ac4280fb92a831f8007f3d">
-        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/classes-e400647b56846bd81362bfafe659632f5720a352.jar" />
+        sha1="0b5e946b76cdb1f00b18f2981e7d997141a66c9f">
+        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5-0777b4746b2fcc58ae9b118a6037b23077a8ebb2.jar" />
+    </item>
+    <item
+        jar="/Users/alexa/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/library-2.4.0-946fbd28a7569ee4b10ab88cda48caf45a101c34.jar" />
+    </item>
+    <item
+        jar="/Users/alexa/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.5.0/bb7d4d96e780e8ef4f275c7d8dd3ef2883ddf99a/okio-1.5.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="bb7d4d96e780e8ef4f275c7d8dd3ef2883ddf99a">
+        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/okio-1.5.0-496f644b0f78679b49bb70ea3a7309a6bde51815.jar" />
     </item>
     <item
         jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.6.1/jars/classes.jar"
@@ -107,11 +65,18 @@
         <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/classes-176645ab4be1740fda627d865e50ef200e2cb77b.jar" />
     </item>
     <item
-        jar="/Users/alexa/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.5.0/bb7d4d96e780e8ef4f275c7d8dd3ef2883ddf99a/okio-1.5.0.jar"
+        jar="/Users/alexa/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.3/1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14/jackson-core-2.2.3.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="bb7d4d96e780e8ef4f275c7d8dd3ef2883ddf99a">
-        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/okio-1.5.0-496f644b0f78679b49bb70ea3a7309a6bde51815.jar" />
+        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14">
+        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.3-ce29a5152377523f9370c047bcc63f88b6428886.jar" />
+    </item>
+    <item
+        jar="/Users/alexa/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.4.0/40340c0748190fe897baf7bffbc1b282734294e5/okhttp-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="40340c0748190fe897baf7bffbc1b282734294e5">
+        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/okhttp-2.4.0-53d6835e58ee4a2dbebd7fc0b29cee33567389b9.jar" />
     </item>
     <item
         jar="/Users/alexa/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
@@ -124,8 +89,22 @@
         jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/Axmall/react-native-icons/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="2890dfead5e09e8eefaf620deac642a40303e429">
+        sha1="3f3eefaa8334fc0d76ad60af993200f4e535c9f6">
         <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/classes-2670ed41492f81c19606ed24491be2f616835b6a.jar" />
+    </item>
+    <item
+        jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp/0.6.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1d5fddbfc516e39dd74d776e5cca8b761721990b">
+        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/classes-1d9d95c88b8e5584d3c993c18b26fe1d84073bd1.jar" />
+    </item>
+    <item
+        jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.6.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="eb9817e26186e1a267cdd14211742ecc793de32e">
+        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/classes-816843f7eb0ab3814556731d76265f1822888199.jar" />
     </item>
     <item
         jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
@@ -133,6 +112,27 @@
         revision="23.0.1"
         sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
         <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/classes-5f177c0bc5553304a13a90c664ee84af3f91ff9e.jar" />
+    </item>
+    <item
+        jar="/Users/alexa/Documents/Axmall/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-567a43eb82311f3b72efe98b7cc20431b68527c9.jar" />
+    </item>
+    <item
+        jar="/Users/alexa/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-d6fc5d4987b6cce02c0b41e61e302dccb0d56225.jar" />
+    </item>
+    <item
+        jar="/usr/local/opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/alexa/Documents/Axmall/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-83cbd8867bbfafb64844edcdc4bcc0a8099d3359.jar" />
     </item>
 
 </items>
