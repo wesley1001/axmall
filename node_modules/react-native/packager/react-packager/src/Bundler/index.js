@@ -16,7 +16,7 @@ const ProgressBar = require('progress');
 const BundlesLayout = require('../BundlesLayout');
 const Cache = require('../Cache');
 const Transformer = require('../JSTransformer');
-const DependencyResolver = require('../DependencyResolver');
+const Resolver = require('../Resolver');
 const Bundle = require('./Bundle');
 const Activity = require('../Activity');
 const ModuleTransport = require('../lib/ModuleTransport');
@@ -94,7 +94,7 @@ class Bundler {
       transformModulePath: opts.transformModulePath,
     });
 
-    this._resolver = new DependencyResolver({
+    this._resolver = new Resolver({
       projectRoots: opts.projectRoots,
       blacklistRE: opts.blacklistRE,
       polyfillModuleNames: opts.polyfillModuleNames,
@@ -132,12 +132,19 @@ class Bundler {
     return this._bundlesLayout.generateLayout(main, isDev);
   }
 
-  bundle(main, runModule, sourceMapUrl, isDev, platform) {
+  bundle({
+    entryFile,
+    runModule: runMainModule,
+    runBeforeMainModule,
+    sourceMapUrl,
+    dev: isDev,
+    platform,
+  }) {
     const bundle = new Bundle(sourceMapUrl);
     const findEventId = Activity.startEvent('find dependencies');
     let transformEventId;
 
-    return this.getDependencies(main, isDev, platform).then((response) => {
+    return this.getDependencies(entryFile, isDev, platform).then((response) => {
       Activity.endEvent(findEventId);
       transformEventId = Activity.startEvent('transform');
 
@@ -174,7 +181,7 @@ class Bundler {
         bundle.addModule(moduleTransport);
       });
 
-      bundle.finalize({ runMainModule: runModule });
+      bundle.finalize({runBeforeMainModule, runMainModule});
       return bundle;
     });
   }
@@ -185,6 +192,38 @@ class Bundler {
 
   getDependencies(main, isDev, platform) {
     return this._resolver.getDependencies(main, { dev: isDev, platform });
+  }
+
+  getOrderedDependencyPaths({ entryFile, dev, platform }) {
+    return this.getDependencies(entryFile, dev, platform).then(
+      ({ dependencies }) => {
+        const ret = [];
+        const promises = [];
+        const placeHolder = {};
+        dependencies.forEach(dep => {
+          if (dep.isAsset()) {
+            const relPath = getPathRelativeToRoot(
+              this._projectRoots,
+              dep.path
+            );
+            promises.push(
+              this._assetServer.getAssetData(relPath, platform)
+            );
+            ret.push(placeHolder);
+          } else {
+            ret.push(dep.path);
+          }
+        });
+
+        return Promise.all(promises).then(assetsData => {
+          assetsData.forEach(({ files }) => {
+            const index = ret.indexOf(placeHolder);
+            ret.splice(index, 1, ...files);
+          });
+          return ret;
+        });
+      }
+    );
   }
 
   _transformModule(bundle, response, module, platform = null) {
@@ -231,7 +270,6 @@ class Bundler {
     ]).then(([dimensions, id]) => {
       const img = {
         __packager_asset: true,
-        isStatic: true,
         path: module.path,
         uri: id.replace(/^[^!]+!/, ''),
         width: dimensions.width / module.resolution,

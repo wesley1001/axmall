@@ -2,14 +2,14 @@
 /* component */
 var React = require('react-native');
 var { Navigator,ScrollView,View,Dimensions } = React;
-
+var {width, height} = Dimensions.get('window')
 /* View */
 var IndexView = require('../../App/Views/Index');
 var WebView = require('../../App/Views/Web');
 var CategoryView = require('../../App/Views/Category');
 var BrandsView = require('../../App/Views/Brands');
 var GoodsView = require('../../App/Views/Goods');
-var {width, height} = Dimensions.get('window')
+
 /* mian */
 var Index = React.createClass({
     _renderScene(route, navigator) {
@@ -34,9 +34,10 @@ var Index = React.createClass({
     render(){
         return (
             <Navigator
-                initialRoute={{'name':'index'}}
+                //initialRoute={{'name':'index'}}
+                initialRoute={{'name':'goods','id':3,'back' : true}}
                 configureScene={() => Navigator.SceneConfigs.FloatFromRight}
-                renderScene={this._renderScene.bind(this)}
+                renderScene={this._renderScene}
             />
         )
         
