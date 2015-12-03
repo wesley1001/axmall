@@ -9,6 +9,7 @@ var SortsView = require('../../App/Views/Sorts');
 var CategoryView = require('../../App/Views/Category');
 var BrandsView = require('../../App/Views/Brands');
 var GoodsView = require('../../App/Views/Goods');
+var CommentView = require('../../App/Views/Goods/Comment');
 
 /* main */
 var Sorts = React.createClass({
@@ -28,6 +29,7 @@ var Sorts = React.createClass({
             case 'category': return (<CategoryView navigator={navigator} route={route} /> );break;
             case 'brands' : return (<BrandsView navigator={navigator} route={route} /> );break;
             case 'goods' : return (<GoodsView navigator={navigator} route={route} /> );break;
+            case 'goodscomment' :  return (<CommentView navigator={navigator} route={route}/> ); break;
         }
     },
     render(){

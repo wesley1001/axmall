@@ -9,6 +9,7 @@ var WebView = require('../../App/Views/Web');
 var CategoryView = require('../../App/Views/Category');
 var BrandsView = require('../../App/Views/Brands');
 var GoodsView = require('../../App/Views/Goods');
+var CommentView = require('../../App/Views/Goods/Comment');
 
 /* mian */
 var Index = React.createClass({
@@ -29,13 +30,14 @@ var Index = React.createClass({
             case 'category': return (<CategoryView navigator={navigator} route={route} /> );break;
             case 'brands' : return (<BrandsView navigator={navigator} route={route} /> );break;
             case 'goods' :  return (<GoodsView navigator={navigator} route={route}/> ); break;
+            case 'goodscomment' :  return (<CommentView navigator={navigator} route={route}/> ); break;
         }
     },
     render(){
         return (
             <Navigator
                 //initialRoute={{'name':'index'}}
-                initialRoute={{'name':'goods','id':3,'back' : true}}
+                initialRoute={{'name':'goods','id':723,'back' : true}}
                 configureScene={() => Navigator.SceneConfigs.FloatFromRight}
                 renderScene={this._renderScene}
             />

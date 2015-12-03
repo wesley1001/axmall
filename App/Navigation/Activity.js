@@ -8,6 +8,7 @@ var {width, height} = Dimensions.get('window')
 var ActivityView = require('../../App/Views/Activity');
 var WebView = require('../../App/Views/Web');
 var GoodsView = require('../../App/Views/Goods');
+var CommentView = require('../../App/Views/Goods/Comment');
 
 /* main */
 var Activity = React.createClass({
@@ -26,6 +27,7 @@ var Activity = React.createClass({
                 );break;
             case 'webview': return ( <WebView navigator={navigator} route={route} /> ); break;
             case 'goods' : return ( <GoodsView navigator={navigator} route={route} /> ); break;
+            case 'goodscomment' :  return (<CommentView navigator={navigator} route={route}/> ); break;
         }
     },
     render(){
