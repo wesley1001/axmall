@@ -15,6 +15,7 @@
 #import "RCTRootView.h"
 #import "RCTTestModule.h"
 #import "RCTUtils.h"
+#import "RCTContextExecutor.h"
 
 static const NSTimeInterval kTestTimeoutSeconds = 60;
 static const NSTimeInterval kTestTeardownTimeoutSeconds = 30;
@@ -33,6 +34,9 @@ static const NSTimeInterval kTestTeardownTimeoutSeconds = 30;
   RCTAssertParam(referenceDirectory);
 
   if ((self = [super init])) {
+    if (!referenceDirectory.length) {
+      referenceDirectory = [[NSBundle bundleForClass:self.class].resourcePath stringByAppendingPathComponent:@"ReferenceImages"];
+    }
 
     NSString *sanitizedAppName = [app stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
     sanitizedAppName = [sanitizedAppName stringByReplacingOccurrencesOfString:@"\\" withString:@"-"];
@@ -114,12 +118,15 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
 
     // Take a weak reference to the JS context, so we track its deallocation later
     // (we can only do this now, since it's been lazily initialized)
-    weakJSContext = [[[bridge valueForKey:@"batchedBridge"] valueForKey:@"javaScriptExecutor"] valueForKey:@"context"];
+    id jsExecutor = [bridge valueForKeyPath:@"batchedBridge.javaScriptExecutor"];
+    if ([jsExecutor isKindOfClass:[RCTContextExecutor class]]) {
+      weakJSContext = [jsExecutor valueForKey:@"context"];
+    }
     [rootView removeFromSuperview];
 
     RCTSetLogFunction(RCTDefaultLogFunction);
 
-    NSArray *nonLayoutSubviews = [vc.view.subviews filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id subview, NSDictionary *bindings) {
+    NSArray<UIView *> *nonLayoutSubviews = [vc.view.subviews filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id subview, NSDictionary *bindings) {
       return ![NSStringFromClass([subview class]) isEqualToString:@"_UILayoutGuide"];
     }]];
     RCTAssert(nonLayoutSubviews.count == 0, @"There shouldn't be any other views: %@", nonLayoutSubviews);

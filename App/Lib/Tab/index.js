@@ -38,7 +38,6 @@ class Tabbar extends Component {
             });
         });
         contentView = React.cloneElement(contentView.props.children, {item:itemList});
-        console.log(contentView);
         return (
             <View style={styles.container}>
                 {contentView}
